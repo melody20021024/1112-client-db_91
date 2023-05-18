@@ -1,7 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
-
-function WomenProductStartPage_91() {
+function WomensProductStaticPage_91() {
   return (
     <div className="shop-page">
     <div className="collection-page">
@@ -84,4 +81,4 @@ function WomenProductStartPage_91() {
   );
 }
 
-export default App;
+export default WomensProductStaticPage_91;

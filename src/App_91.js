@@ -1,51 +1,15 @@
-import{ useState,useEffect} from 'react';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Shop2Page_91 from './pages/supabase/Shop2Page_91';
+import WomensProductStaticPage_91 from './pages/WomensProductStaticPage_91'
 
-function App() {
-  const[products,setProducts]=useState([]);
-  
-  const getShop2_91 =async()=>{
-    try{
-      const response=await fetch(`https://axkkvqkfwhcfrwtjvyam.supabase.co/rest/v1/shop2_91?select=*`,{
-        method:'GET',
-        headers:{
-          apikey:`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF4a2t2cWtmd2hjZnJ3dGp2eWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODI0ODc3ODAsImV4cCI6MTk5ODA2Mzc4MH0.YvCTPYAwQwazzdT77WfTcEBdbdmRI-4cTC7sTXD9I-M`,
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF4a2t2cWtmd2hjZnJ3dGp2eWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODI0ODc3ODAsImV4cCI6MTk5ODA2Mzc4MH0.YvCTPYAwQwazzdT77WfTcEBdbdmRI-4cTC7sTXD9I-M`
-        }
-      });
-      const data=await response.json();
-      console.log('shop2 data',data);
-      setProducts(data);
-    }catch(error){
-      console.log(error);
-    }
-  }
-
-  useEffect(()=>{
-    getShop2_91();
-  },[]);
-
-  return (
-    <div className="shop-page">
-    <div className="collection-page">
-      <h1 className="title">All Product -- Supabase shop2</h1>
-      <div className="items">
-        { products.map( ( product)=> {
-          const{name,price,local_url} =product;
-          return(
-          <div className="collection-item">
-          <img className="image" src={local_url} />
-          <div className="collection-footer">
-            <span className="name">{name}</span>
-            <span className="price">{price}</span>
-          </div>
-          <button className="custom-button">Add to Cart</button>
-          </div>
-        )
-        })}
-      </div>
-    </div>
-  </div>
-  );
+const App_91 = () =>{
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path="/static_91"element={<WomensProductStaticPage_91/>}/>
+        <Route path="/supa_shop2_91"element={<Shop2Page_91/>}/>
+      </Routes>
+    </BrowserRouter>
+  )
 }
-
-export default App;
+export default App_91;
